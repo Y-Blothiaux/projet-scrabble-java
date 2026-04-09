@@ -122,9 +122,13 @@ Accepted forms include:
 Word input rules:
 - Type normal letters in uppercase.
 - If you use a Joker (blank tile), the letter represented by that Joker must be lowercase.
+- If your move starts before an existing word and ends after it, type only the letters you place (do not retype letters already on the board).
 
 Example with Joker:
 - `h8h DOg` means the `g` comes from a Joker tile.
+
+Example with existing letters on board:
+- If `RAGE` is already on the board and you use the existing `A` to form `BASE`, enter only the letters you place: `BSE`.
 
 ## CLI Commands
 
