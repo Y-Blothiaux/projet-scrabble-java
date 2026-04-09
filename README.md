@@ -179,11 +179,27 @@ The GUI is implemented with JavaFX.
 - A save file passed as the single positional argument is loaded at startup.
 - The main window includes game actions, save/load, multiplayer access, and configuration display.
 - The configuration dialog exists, but the editor itself is not fully implemented yet.
-- You can open the shortcut configuration menu with Ctrl + ,.
+- You can open the configuration dialog with Ctrl + ,.
 
 ### GUI Keyboard Shortcuts
 
-If you are using the Graphical User Interface, you can customize your keyboard shortcuts at any time during the game by pressing Ctrl + ,.
+The GUI loads its shortcuts from the configuration file using the `bind-*` entries in `~/.scrabblerc`.
+By default, the active shortcuts are:
+
+| Shortcut | Action |
+| --- | --- |
+| `Ctrl + ,` | Open the configuration dialog |
+| `Ctrl + N` | New game |
+| `Ctrl + L` | Load a game |
+| `Ctrl + S` | Save the current game |
+| `Ctrl + Q` | Quit the application |
+| `Ctrl + U` | Undo |
+| `Ctrl + R` | Redo |
+| `Ctrl + H` | Hint |
+| `Ctrl + I` | Show info |
+| `Ctrl + P` | Pause or resume the game |
+
+You can change the `bind-*` values in `~/.scrabblerc` to remap these shortcuts.
 
 ## AI And ML
 
