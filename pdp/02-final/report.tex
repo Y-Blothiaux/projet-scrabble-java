@@ -176,7 +176,7 @@
     \paragraph{Conclusion sur la difficulté}
     Ces contraintes font du Scrabble un problème d'optimisation combinatoire sous incertitude, à la frontière entre la recherche arborescente, la linguistique computationnelle et la théorie des jeux stochastiques.
 
-
+    \newpage
     \subsection{Existant algorithmique}
     L'état de l'art repose sur des travaux académiques fondateurs et des logiciels éprouvés.
 
@@ -234,6 +234,7 @@
     return maxDamage;
     \end{minted}
 
+    \newpage
     \subsubsection{L'impact de l'heuristique}
     Au Scrabble, évaluer un coup uniquement par les points qu'il rapporte sur le plateau n'est pas le plus pertinent. L'algorithme intègre donc une fonction heuristique d'évaluation du "reliquat" (\texttt{leaveScore}) qui note la qualité des lettres conservées sur le chevalet après un coup. Cette heuristique va attribuer des bonus ou des malus en fonction de la "qualité" du chevalet : Joker (+15.0), 'S' (+8.0), Lettres difficiles (-6.0), équilibre voyelles/consonnes (+5.0), uniquement consonne/voyelle (-12.0).
 
@@ -478,6 +479,7 @@ inférieur à deux mégaoctets. Cependant, si cette structure est excellente pou
 génération automatique de coups. En raison de son parcours strictement unidirectionnel, de la racine vers les feuilles, le DAWG ne peut pas explorer efficacement les 
 possibilités de jeu s'articulant autour d'une ancre déjà présente sur la grille.\newline
 
+\newpage
 Pour placer un mot contenant une lettre fixe en son centre ou à sa fin, l'algorithme est incapable de remonter le graphe pour identifier les préfixes compatibles. Il est alors
  contraint de tester à l'aveugle une multitude de combinaisons de lettres en espérant atteindre l'ancre, ce qui provoque une inefficacité notoire face à l'explosion 
  combinatoire des tirages. Cette incapacité à traiter nativement la recherche bidirectionnelle souligne la nécessité d'une structure plus évoluée, capable de s'affranchir 
@@ -520,7 +522,7 @@ structure déterministe et permet de conserver un seul chemin par couple (mot, a
     \caption{Graphe du GADDAG semi-minimisé pour « CARE ». (Source : ~\cite{10.1002/spe.4380240205})}
     \label{fig:gaddag_care}
 \end{figure}
-
+\newpage
 \subsubsection{Utilisation dans le moteur de jeu}
 
 L'intégration du GADDAG au sein du moteur de jeu transforme radicalement la génération de coups en la rendant purement itérative. Pour chaque case « ancre » 
@@ -1409,7 +1411,7 @@ Fonctionnel, ce besoin permet la réalisation de parties multi-joueurs en résea
     \end{itemize}
 
     \subsection{Outils d'assistance utilisés}
-    Tout au long du projet, nous avons utilisé des assistants IA, notamment Copilot, Claude et Gemini, comme outils d'appui pour accélérer certaines phases de développement. Leur usage a principalement concerné le débogage, la génération de cas de test et la vérification de comportements limites, tout en conservant une validation humaine systématique avant intégration dans le code final.
+    Tout au long du projet, nous avons utilisé des assistants IA, notamment Copilot (Pro All Agents), Claude (Sonnet 4.6) et Gemini (3 Flash), comme outils d'appui pour accélérer certaines phases de développement. Leur usage a principalement concerné le débogage, la génération de cas de test et la vérification de comportements limites, tout en conservant une validation humaine systématique avant intégration dans le code final.
 
 %------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
