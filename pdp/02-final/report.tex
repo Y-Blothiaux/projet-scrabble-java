@@ -1381,11 +1381,10 @@ Fonctionnel, ce besoin permet la réalisation de parties multi-joueurs en résea
 	
     \section{Revue Critique du Projet}
 	
-	L'élaboration de ce prototype de Scrabble à permis de valider la faisabilité technique d'un moteur de jeu complet couplé à des intelligences artificielles complexes. Néanmoins, avec le recul nécessaire sur le cycle de développement, plusieurs limitations architecturales, ergonomiques et algorithmiques ont été identifiées. Cette section dresse un bilan critique du projet et propose des axes d'amélioration.
-	
+	La mise en place du projet nous a permsi de dévelloper un moteur de jeux complet . Néanmoins, avec le recul  sur le développement, plusieurs limitations architecturales, ergonomiques et algorithmiques ont été identifiées. 
 	\subsection{Architecture Logicielle}
 	Bien que le moteur de jeu (\texttt{core}) soit pleinement fonctionnel, son architecture actuelle présente un potentiel de refactoring important. Au fil du développement, un certain couplage s'est créé entre la logique métier (règles du jeu, gestion du plateau), les modules d'intelligence artificielle et l'interface utilisateur.
-	Pour garantir la pérennité et la scalabilité du projet, une restructuration globale serait bénéfique :
+	Pour améliorere la maintenabilité du projet, une restructuration du core serait bénéfique :
 	\begin{itemize}
 		\item \textbf{Découplage et Modularité :} L'application stricte des principes de conception (comme l'injection de dépendances et le pattern MVC) permettrait de rendre les modules totalement indépendants. L'IA ne devrait interagir avec le moteur que via une API interne stricte.
 		\item \textbf{Optimisation du MoveGenerator :} Actuellement très sollicité, le générateur de mouvements gagnerait à être optimisé (par exemple via du multithreading pour le parcours du GADDAG), afin de soulager le processeur lors des phases de réflexion de l'IA.
@@ -1403,7 +1402,7 @@ Fonctionnel, ce besoin permet la réalisation de parties multi-joueurs en résea
 	Le système de chargement devrait être rendu totalement agnostique. L'ajout d'une nouvelle langue ne devrait nécessiter qu'un simple ajout de fichier de configuration (JSON/XML) définissant l'alphabet, la valeur des lettres, leur fréquence d'apparition et le fichier lexique associé, sans aucune recompilation du code source.
 	
 	\subsection{Limites des IA Implémentées}
-	Le défi majeur de ce projet résidait dans l'implémentation de l'intelligence artificielle face au problème de l'information imparfaite. Les approches développées ont chacune révélé des limites matérielles ou logiques :
+	Un défi majeur de ce projet résidait dans l'implémentation de l'intelligence artificielle face au problème de l'information imparfaite. Les approches développées ont chacune révélé des limites matérielles ou logiques :
 	\begin{itemize}
 		\item \textbf{Approche Monte-Carlo (Minimax / Expectiminimax) :} Nos mesures empiriques ont prouvé que la complexité temporelle de ces algorithmes provoque un goulot d'étranglement majeur. L'absence de techniques d'élagage (comme l'Alpha-Beta) oblige le moteur à interrompre la recherche via un \textit{timeout} (5 secondes) avant d'avoir pu explorer l'arbre de profondeur 2 de manière exhaustive.
 		\item \textbf{Le Machine Learning (TensorFlow) :} L'approche offre des performances foudroyantes en temps d'inférence pour trouver des anagrammes. Cependant, l'architecture de notre tenseur d'entrée limite la vision du réseau neuronal au seul chevalet du joueur. Sans connaissance de la topologie du plateau, ce modèle est incapable de jouer de manière autonome.
@@ -1422,7 +1421,7 @@ Fonctionnel, ce besoin permet la réalisation de parties multi-joueurs en résea
 %------------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %------------------------------------------------------------------------------
-
+\newpage
 \nocite{*}
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
