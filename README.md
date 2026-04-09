@@ -111,14 +111,20 @@ Behavior details that matter in practice:
 - `-a` defaults to `RED` when no color is provided.
 - `-p` accepts only 2, 3, or 4 players.
 
-### Playing a Joker in CLI
+### Playing a Move in CLI
 
-When entering a move in the CLI, you must differentiate between regular tiles and Joker (blank) tiles:
-- Type regular tiles in **uppercase**.
-- Type the letter representing the Joker in **lowercase**.
+When entering a play move in CLI, use this order:
+- position position direction word
 
-For example, to play the word "DOG" using a Joker for the letter 'G', you would type:
-`DOg`
+Accepted forms include:
+- `h8h HOT`
+
+Word input rules:
+- Type normal letters in uppercase.
+- If you use a Joker (blank tile), the letter represented by that Joker must be lowercase.
+
+Example with Joker:
+- `h8h DOg` means the `g` comes from a Joker tile.
 
 ## CLI Commands
 
