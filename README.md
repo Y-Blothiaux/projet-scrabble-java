@@ -217,6 +217,7 @@ Add `--daemon` to run the server in headless mode:
 ```
 
 You can also reach the network lobby from the GUI, where the multiplayer menu lets you manage the same host flow.
+The dictionary used for the game is the one loaded on the server (English by default, can be changed with -l).
 
 ### Joining a Server
 
