@@ -948,8 +948,10 @@ Fonctionnel. Ce besoin permet la persistance d'une partie entre deux sessions de
         \bottomrule
     \end{tabular}
     \caption{Tests unitaires des sections \texttt{[settings]} et \texttt{[game]}}
+    
 \end{table}
 
+\newpage
 % Sous-besoin 3
 \begin{besoinbox}
     \textbf{\large Sous-besoin 3 : Sérialisation de la section \texttt{[history]}}
@@ -1215,8 +1217,7 @@ Fonctionnel, ce besoin permet la réalisation de parties multi-joueurs en résea
     \end{itemize}
     \vspace{2mm}
 
-    Via la commande \texttt{new}, le serveur instancie l'objet \texttt{OnlineGame}. C’est la \textbf{référence unique d’une partie réseau}, qui encapsule le modèle de jeu autoritaire et regroupe les flux de communication.\\
-
+    Via la commande \texttt{new}, le serveur instancie l'objet \texttt{OnlineGame}. C’est la \textbf{référence unique d’une partie réseau}, qui encapsule le modèle de jeu autoritaire et regroupe les flux de communication.
     Pour illustrer le cycle de vie d'une requête, prenons la commande \texttt{MOVE}. L'appel est fait par \texttt{NetworkManager}, une \textbf{façade simplifiant les interactions} entre l'interface et le réseau. 
     Lorsqu'un joueur valide son coup, le \texttt{GameClient} va \textbf{sérialiser cette action} en une chaîne respectant le protocole (\texttt{MOVE:TYPE=PLAY;X=7;Y=7;DIR=H;TILES=LA}) et l’envoyer sur le socket.\\
 
