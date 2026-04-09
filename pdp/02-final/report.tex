@@ -895,10 +895,13 @@ Fonctionnel. Ce besoin permet la persistance d'une partie entre deux sessions de
     \texttt{SaveManager} est l'unique point de sérialisation. Lorsque l'utilisateur exécute \texttt{save FILE}, le contrôleur auxiliaire délègue immédiatement à cette méthode. Elle ouvre (ou crée) le fichier cible via un \texttt{PrintWriter}, puis écrit successivement les trois sections obligatoires dans l'ordre : \texttt{[settings]}, \texttt{[game]}, \texttt{[history]}. Chaque section est produite par une méthode interne dédiée, ce qui garantit qu'une erreur d'écriture dans l'une d'elles remonte une \texttt{IOException} propre sans laisser de fichier partiellement écrit sur le disque.
 \end{besoinbox}
 
+\begin{samepage}
 \begin{table}[H]
     \centering
-    \small
-    \begin{tabular}{p{4.5cm} p{4.5cm} p{5.5cm}}
+    \footnotesize
+    \setlength{\tabcolsep}{3pt}
+    \renewcommand{\arraystretch}{0.88}
+    \begin{tabular}{p{4.1cm} p{4.1cm} p{5.0cm}}
         \toprule
         \textbf{Cas} & \textbf{Entrée} & \textbf{Résultat attendu} \\
         \midrule
@@ -1093,13 +1096,16 @@ while ((line = reader.readLine()) != null) {
     \caption{Architecture de la fonctionnalité Sauvegarde/Restauration}
 \end{table}
 
-\textbf{Flux d'intégration (UI $\rightarrow$ contrôleur $\rightarrow$ métier) :}
-\begin{minted}[fontsize=\small, breaklines]{java}
-save FILE  ->  SaveManager.saveGame(game, filePath)
-load FILE  ->  Game loaded = GameLoader.loadGame(filePath)
-           ->  controller rebinds loaded game
-           ->  UI refreshes board / rack / scores
-\end{minted}
+\vspace{-0.5em}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.66\textwidth,trim=0 2.3cm 0 2.1cm,clip]{sequence_save_load.png}
+    \caption{Diagramme de séquence du scénario de sauvegarde et restauration d'une partie.}
+    \label{fig:sequence_f21}
+\end{figure}
+
+\vspace{-0.6em}
+\end{samepage}
 
 \subsubsection{Scénario utilisateur}
 
